@@ -1,0 +1,42 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('user_diets', function (Blueprint $table) {
+            $table->id();
+            $table->smallInteger('weight');
+            $table->smallInteger('height');
+            $table->smallInteger('target_weight');
+            $table->smallInteger('target_month');
+            $table->smallInteger('calories_needed');
+            $table->smallInteger('calories_reduced');
+            $table->smallInteger('bmi_score');
+            $table->string('bmi_status', 20);
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('user_diets');
+    }
+};
