@@ -32,6 +32,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/dashboard/food/{id}', [FoodController::class, 'single']);
+
 Route::get('/makanan', [FoodController::class, 'all']);
 
 require __DIR__ . '/auth.php';

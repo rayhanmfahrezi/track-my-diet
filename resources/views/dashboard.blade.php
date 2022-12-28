@@ -82,9 +82,12 @@
 
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 px-5 md:px-0 mt-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-7 px-5 md:px-0 mt-10">
                 @foreach ($foods as $food)
-                    <div class=" text-gray-900 dark:text-gray-100 p-5 rounded-md bg-gray-700">
+                    <a href="{{ url('dashboard/food/' . $food['id']) }}"
+                        class=" text-gray-900 dark:text-gray-100 p-5 rounded-md bg-gray-700 hover:scale-105 transition duration-100 hover:cursor-pointer">
+                        <img class="object-cover mb-5 rounded-lg h-48 w-full" src="images/{{ $food['name'] }}.jpg"
+                            alt="{{ $food['name'] }} Image">
                         <h1 class="text-2xl font-bold">{{ $food['name'] }}</h1>
                         <div class="grid grid-cols-2 gap-2 mt-5">
                             <div class="px-3 py-1 rounded-full bg-orange-600 bg-opacity-70">Cal :
@@ -96,9 +99,9 @@
                             <div class="px-3 py-1 rounded-full bg-green-600 bg-opacity-70">Pro :
                                 {{ $food['protein'] }}</div>
                         </div>
-                        <p class="mt-5">{{ $food['description'] }}</p>
+                        {{-- <p class="mt-5">{{ $food['description'] }}</p> --}}
 
-                    </div>
+                    </a>
                 @endforeach
             </div>
         </div>

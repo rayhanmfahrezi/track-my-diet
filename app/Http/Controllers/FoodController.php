@@ -13,4 +13,11 @@ class FoodController extends Controller
         // dump($result);
         return view('dashboard', ["foods" => $foods]);
     }
+
+    public function single($id)
+    {
+        $food = Food::where('id', $id)->first();
+        // dump($food);
+        return view('food_info', ["food" => $food]);
+    }
 }
