@@ -81,6 +81,26 @@
                 </form>
 
             </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 px-5 md:px-0 mt-10">
+                @foreach ($foods as $food)
+                    <div class=" text-gray-900 dark:text-gray-100 p-5 rounded-md bg-gray-700">
+                        <h1 class="text-2xl font-bold">{{ $food['name'] }}</h1>
+                        <div class="grid grid-cols-2 gap-2 mt-5">
+                            <div class="px-3 py-1 rounded-full bg-orange-600 bg-opacity-70">Cal :
+                                {{ $food['calories'] }}</div>
+                            <div class="px-3 py-1 rounded-full bg-blue-600 bg-opacity-70">Car :
+                                {{ $food['carbs'] }}</div>
+                            <div class="px-3 py-1 rounded-full bg-yellow-600 bg-opacity-70">Fat :
+                                {{ $food['fat'] }}</div>
+                            <div class="px-3 py-1 rounded-full bg-green-600 bg-opacity-70">Pro :
+                                {{ $food['protein'] }}</div>
+                        </div>
+                        <p class="mt-5">{{ $food['description'] }}</p>
+
+                    </div>
+                @endforeach
+            </div>
         </div>
 
     </div>
