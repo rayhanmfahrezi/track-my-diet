@@ -36,6 +36,27 @@ class FoodsTableSeeder extends Seeder
                 "created_at" => now(),
                 "updated_at" => now(),
             ],
+            [
+                "name" => "Mozarella Stick",
+                "category" => "Grains",
+                "description" => "Mozzarella sticks are a popular snack or appetizer that is made by coating slices of mozzarella cheese in a breading mixture and deep-frying them until they are crispy and golden brown",
+                "ingredient" => "Mozzarella cheese, Flour, Eggs, Breadcrumbs, Seasonings, Vegetable oil, Dipping sauces",
+                "instruction" => "
+                1. Cut the mozzarella cheese into sticks and refrigerate until firm.
+                2. Set up a breading station with flour, beaten eggs, and breadcrumb mixture. Coat the cheese sticks in the flour, eggs, and breadcrumbs. Refrigerate for at least 30 minutes.
+                3. Heat oil to 375°F in a deep fryer or heavy pot. Fry the mozzarella sticks for 2-3 minutes or until golden brown. Drain on paper towels.
+                4. Serve hot with dipping sauces.",
+                "calories" => 80.00,
+                "carbs" => 4.00,
+                "fat" => 9.00,
+                "protein" => 4.00,
+                "serving_size" => 2,
+                "like" => false,
+                "like_count" => 0,
+                "saved" => false,
+                "created_at" => now(),
+                "updated_at" => now(),
+            ],
 
             [
                 "name" => "Spaghetti alla Carbonara",
@@ -157,6 +178,7 @@ class FoodsTableSeeder extends Seeder
             ],
 
             [
+
                 "name" => "Ayam Bakar",
                 "category" => "Poultry",
                 "description" => "Ayam Bakar is an Indonesian dish that consists of grilled chicken that is marinated in a mixture of spices. The chicken is typically cooked over an open fire or grill, which gives it a smoky and charred flavor.",
