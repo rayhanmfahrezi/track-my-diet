@@ -86,7 +86,8 @@
                 @foreach ($foods as $food)
                     <a href="{{ url('dashboard/food/' . $food['id']) }}"
                         class=" text-gray-900 dark:text-gray-100 p-5 rounded-md bg-gray-700 hover:scale-105 transition duration-100 hover:cursor-pointer">
-                        <img class="object-cover mb-5 rounded-lg h-48 w-full" src="images/{{ $food['name'] }}.jpg"
+                        <img class="object-cover mb-5 rounded-lg h-48 w-full"
+                            src="images/{{ $food['category'] }}/{{ $food['name'] }}.jpg"
                             alt="{{ $food['name'] }} Image">
                         <h1 class="text-2xl font-bold">{{ $food['name'] }}</h1>
                         <div class="grid grid-cols-2 gap-2 mt-5">

@@ -17,7 +17,8 @@ class FoodController extends Controller
     public function single($id)
     {
         $food = Food::where('id', $id)->first();
-        // dump($food);
-        return view('food_info', ["food" => $food]);
+        $ingredients = explode(",", $food["ingredient"]);
+        // dump($ingredients);
+        return view('food_info', ["food" => $food, "ingredients" => $ingredients]);
     }
 }
