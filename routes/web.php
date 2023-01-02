@@ -37,6 +37,10 @@ Route::get('/dashboard/food/{id}', [FoodController::class, 'single']);
 Route::get('/dashboard/search', [FoodController::class, 'search']);
 
 Route::get('/makanan', [FoodController::class, 'all']);
+Route::get('/like/{id}', [FoodController::class, 'like']);
+Route::get('/save/{id}', [FoodController::class, 'save']);
+Route::get('/unsave/{id}', [FoodController::class, 'unsave']);
+
 
 
 require __DIR__ . '/auth.php';
