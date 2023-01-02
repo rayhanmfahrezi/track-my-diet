@@ -34,6 +34,9 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/dashboard/food/{id}', [FoodController::class, 'single']);
 
+Route::get('/dashboard/search', [FoodController::class, 'search']);
+
 Route::get('/makanan', [FoodController::class, 'all']);
+
 
 require __DIR__ . '/auth.php';

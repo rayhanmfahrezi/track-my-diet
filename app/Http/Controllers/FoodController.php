@@ -10,7 +10,6 @@ class FoodController extends Controller
     public function all()
     {
         $foods = Food::all();
-        // dump($result);
         return view('dashboard', ["foods" => $foods]);
     }
 
@@ -18,7 +17,14 @@ class FoodController extends Controller
     {
         $food = Food::where('id', $id)->first();
         $ingredients = explode(",", $food["ingredient"]);
-        // dump($ingredients);
         return view('food_info', ["food" => $food, "ingredients" => $ingredients]);
+    }
+
+    public function search(Request $request)
+    {
+        $name = $request->search;
+        $foods = Food::where('name', 'LIKE', "%" . $name . "%")->get();
+
+        return view('search', ['foods' => $foods, 'name' => $name]);
     }
 }
