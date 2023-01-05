@@ -44,11 +44,11 @@ Route::get('/unsave/{id}', [FoodController::class, 'unsave']);
 
 Route::get('/user-diet', [UserDietController::class, 'all']);
 
-Route::get('/today-foods', function () {
-    return view('today_foods');
-})->name('today_foods');
-Route::get('/today-food/{year}/{month}/{day}', [TodayFoodController::class, 'all']);
-Route::get('/date', [TodayFoodController::class, 'date']);
+// Route::get('/today-foods', function () {
+//     return view('today_foods');
+// })->name('today_foods');
+
+Route::get('/today-foods', [TodayFoodController::class, 'date']);
 
 
 

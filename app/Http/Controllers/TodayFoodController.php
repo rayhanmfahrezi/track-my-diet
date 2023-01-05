@@ -20,7 +20,13 @@ class TodayFoodController extends Controller
 
     public function date(Request $request)
     {
-        $date = $request->input('dateFrom');
+        $date = $request->input('date');
+
+        if (!$date) {
+            $date = date('Y-m-d');
+        }
+
+        // $date = $request->input('date');
         // dump($date);
         // $year = substr($date, 0, 4);
         // $month = substr($date, 5, 6);
@@ -29,7 +35,7 @@ class TodayFoodController extends Controller
 
 
         $today_foods = TodayFood::all()->where("date", $date)->where('user_id', Auth::id());
-        dump($today_foods);
+        // dump($today_foods);
 
         return view('today_foods', ["today_foods" => $today_foods]);
         // return redirect("/today-food/$year/$month/$day");
