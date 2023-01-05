@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TodayFoodController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,6 +41,14 @@ Route::get('/makanan', [FoodController::class, 'all']);
 Route::get('/like/{id}', [FoodController::class, 'like']);
 Route::get('/save/{id}', [FoodController::class, 'save']);
 Route::get('/unsave/{id}', [FoodController::class, 'unsave']);
+
+Route::get('/user-diet', [UserDietController::class, 'all']);
+
+Route::get('/today-foods', function () {
+    return view('today_foods');
+})->name('today_foods');
+Route::get('/today-food/{year}/{month}/{day}', [TodayFoodController::class, 'all']);
+Route::get('/date', [TodayFoodController::class, 'date']);
 
 
 

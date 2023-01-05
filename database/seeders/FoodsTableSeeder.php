@@ -19,7 +19,7 @@ class FoodsTableSeeder extends Seeder
             [
                 "name" => "Fried Rice",
                 "category" => "Grains",
-                "description" => "A simple meals so delicious",
+                "description" => "traditional Chinese preparation of cooked rice, vegetables, protein, soy sauce, and aromatics",
                 "ingredient" => "Grain rice, Small white onion, Peas and Carrots, Eggs, Sesame Oil, Soy Sauce",
                 "instruction" => "
                 1. Preheat a large skillet or wok to medium heat. Pour sesame oil in the bottom. Add white onion and peas and carrots and fry until tender.
@@ -36,27 +36,27 @@ class FoodsTableSeeder extends Seeder
                 "created_at" => now(),
                 "updated_at" => now(),
             ],
-            [
-                "name" => "Mozarella Stick",
-                "category" => "Grains",
-                "description" => "Mozzarella sticks are a popular snack or appetizer that is made by coating slices of mozzarella cheese in a breading mixture and deep-frying them until they are crispy and golden brown",
-                "ingredient" => "Mozzarella cheese, Flour, Eggs, Breadcrumbs, Seasonings, Vegetable oil, Dipping sauces",
-                "instruction" => "
-                1. Cut the mozzarella cheese into sticks and refrigerate until firm.
-                2. Set up a breading station with flour, beaten eggs, and breadcrumb mixture. Coat the cheese sticks in the flour, eggs, and breadcrumbs. Refrigerate for at least 30 minutes.
-                3. Heat oil to 375°F in a deep fryer or heavy pot. Fry the mozzarella sticks for 2-3 minutes or until golden brown. Drain on paper towels.
-                4. Serve hot with dipping sauces.",
-                "calories" => 80.00,
-                "carbs" => 4.00,
-                "fat" => 9.00,
-                "protein" => 4.00,
-                "serving_size" => 2,
-                "like" => false,
-                "like_count" => 0,
-                "saved" => false,
-                "created_at" => now(),
-                "updated_at" => now(),
-            ],
+            // [
+            //     "name" => "Mozarella Stick",
+            //     "category" => "Grains",
+            //     "description" => "Mozzarella sticks are a popular snack or appetizer that is made by coating slices of mozzarella cheese in a breading mixture and deep-frying them until they are crispy and golden brown",
+            //     "ingredient" => "Mozzarella cheese, Flour, Eggs, Breadcrumbs, Seasonings, Vegetable oil, Dipping sauces",
+            //     "instruction" => "
+            //     1. Cut the mozzarella cheese into sticks and refrigerate until firm.
+            //     2. Set up a breading station with flour, beaten eggs, and breadcrumb mixture. Coat the cheese sticks in the flour, eggs, and breadcrumbs. Refrigerate for at least 30 minutes.
+            //     3. Heat oil to 375°F in a deep fryer or heavy pot. Fry the mozzarella sticks for 2-3 minutes or until golden brown. Drain on paper towels.
+            //     4. Serve hot with dipping sauces.",
+            //     "calories" => 80.00,
+            //     "carbs" => 4.00,
+            //     "fat" => 9.00,
+            //     "protein" => 4.00,
+            //     "serving_size" => 2,
+            //     "like" => false,
+            //     "like_count" => 0,
+            //     "saved" => false,
+            //     "created_at" => now(),
+            //     "updated_at" => now(),
+            // ],
 
             [
                 "name" => "Spaghetti alla Carbonara",
@@ -113,7 +113,7 @@ class FoodsTableSeeder extends Seeder
                 1. Prepare the broth: In a large pot, combine the chicken, beef, or vegetables with water and bring to a boil. Add the spices, such as turmeric, coriander, and lemongrass, and simmer until the meats are cooked through.
                 2. Cook the rice or noodles: In a separate pot, cook the rice or noodles according to the package instructions.
                 3. Assemble the dish: Place the cooked rice or noodles in a bowl, then ladle the broth and meats over the top. Garnish with boiled eggs, herbs, and fried shallots.
-                4. Serve: Serve the soto hot, with additional garnishes on the side if desired.", 
+                4. Serve: Serve the soto hot, with additional garnishes on the side if desired.",
                 "calories" => 325.0,
                 "carbs" => 35.00,
                 "fat" => 18.70,
@@ -139,7 +139,7 @@ class FoodsTableSeeder extends Seeder
                 5. Add the broth: Ladle the hot broth into the rice, one cup at a time, stirring constantly. Allow the broth to be absorbed before adding more.
                 6. Add the vegetables or meats: If using vegetables or meats, add them to the risotto during the last 10-15 minutes of cooking.
                 7. Stir in the cheese: If using cheese, stir it into the risotto just before serving.
-                8. Serve: Serve the risotto hot, garnished with additional cheese or herbs if desired.", 
+                8. Serve: Serve the risotto hot, garnished with additional cheese or herbs if desired.",
                 "calories" => 400.0,
                 "carbs" => 56.00,
                 "fat" => 22.00,
@@ -224,7 +224,7 @@ class FoodsTableSeeder extends Seeder
                 "saved" => false,
                 "created_at" => now(),
                 "updated_at" => now(),
-            ], 
+            ],
 
             [
                 "name" => "Chicken Satay",
@@ -247,7 +247,7 @@ class FoodsTableSeeder extends Seeder
                 "saved" => false,
                 "created_at" => now(),
                 "updated_at" => now(),
-            ], 
+            ],
 
             [
                 "name" => "Ayam Geprek",
@@ -270,7 +270,7 @@ class FoodsTableSeeder extends Seeder
                 "saved" => false,
                 "created_at" => now(),
                 "updated_at" => now(),
-            ], 
+            ],
 
             [
                 "name" => "Steak Frites",

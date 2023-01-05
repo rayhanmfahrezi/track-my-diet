@@ -22,5 +22,6 @@ class DatabaseSeeder extends Seeder
         // ]);
         $this->call(FoodsTableSeeder::class);
         $this->call(UsersTableSeeder::class);
+        $this->call(TodayFoodsTableSeeder::class);
     }
 }

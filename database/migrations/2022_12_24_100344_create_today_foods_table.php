@@ -16,7 +16,10 @@ return new class extends Migration
         Schema::create('today_foods', function (Blueprint $table) {
             $table->id();
             $table->date('date');
-            $table->smallInteger('total_calory');
+            $table->string('name', 80);
+            $table->smallInteger('calory');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
