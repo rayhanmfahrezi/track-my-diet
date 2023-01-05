@@ -48,7 +48,15 @@ Route::get('/user-diet', [UserDietController::class, 'all']);
 //     return view('today_foods');
 // })->name('today_foods');
 
-Route::get('/today-foods', [TodayFoodController::class, 'date']);
+Route::get('/today-foods', [TodayFoodController::class, 'date'])->name('today_foods');
+Route::get('/today-foods/add', function () {
+    return view('today_food_form');
+});
+Route::post('/today-foods/add-food', [TodayFoodController::class, 'add']);
+Route::get('/today-foods/delete/{id}', [TodayFoodController::class, 'delete']);
+
+Route::get('/today-foods/edit/{id}', [TodayFoodController::class, 'viewEdit']);
+Route::post('/today-foods/update', [TodayFoodController::class, 'update']);
 
 
 

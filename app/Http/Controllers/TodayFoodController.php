@@ -37,7 +37,47 @@ class TodayFoodController extends Controller
         $today_foods = TodayFood::all()->where("date", $date)->where('user_id', Auth::id());
         // dump($today_foods);
 
-        return view('today_foods', ["today_foods" => $today_foods]);
+        return view('today_foods', ["today_foods" => $today_foods, "date" => $date]);
         // return redirect("/today-food/$year/$month/$day");
+    }
+
+    public function add(Request $request)
+    {
+        // dump($request);
+        $today_food = new TodayFood();
+        $today_food->date = $request->date;
+        $today_food->name = $request->name;
+        $today_food->calory = $request->calory;
+        $today_food->user_id = Auth::id();
+        $today_food->save();
+
+        return redirect(route('today_foods'));
+    }
+
+    public function viewEdit($id)
+    {
+        $today_food = TodayFood::where('id', $id)->first();
+
+        return view('today_food_form', ["today_food" => $today_food]);
+    }
+
+    public function update(Request $request)
+    {
+        $today_food = TodayFood::where('id', $request->id)->first();
+        $today_food->date = $request->date;
+        $today_food->name = $request->name;
+        $today_food->calory = $request->calory;
+        $today_food->save();
+
+        return redirect(route('today_foods'));
+    }
+
+    public function delete($id)
+    {
+
+        $today_food = TodayFood::find($id);
+        $today_food->delete();
+
+        return redirect(route('today_foods'));
     }
 }
