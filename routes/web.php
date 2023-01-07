@@ -4,7 +4,7 @@ use App\Http\Controllers\FoodController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\TodayFoodController;
-
+use App\Http\Controllers\UserDietsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,6 +55,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/dashboard/food/{id}', [FoodController::class, 'single']);
 
 Route::get('/dashboard/search', [FoodController::class, 'search']);
+Route::get('/dashboard/saved', [FoodController::class, 'saved'])->name("saved");
 
 Route::get('/foods_admin/create', [FoodController::class, 'create']);
 
@@ -63,7 +64,8 @@ Route::get('/like/{id}', [FoodController::class, 'like']);
 Route::get('/save/{id}', [FoodController::class, 'save']);
 Route::get('/unsave/{id}', [FoodController::class, 'unsave']);
 
-Route::get('/user-diet', [UserDietController::class, 'all']);
+Route::get('/user-diets', [UserDietsController::class, 'showForm'])->name("user_diets");
+Route::post('/user-diets/save', [UserDietsController::class, 'save']);
 
 // Route::get('/today-foods', function () {
 //     return view('today_foods');

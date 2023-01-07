@@ -15,14 +15,16 @@ return new class extends Migration
     {
         Schema::create('user_diets', function (Blueprint $table) {
             $table->id();
+            $table->smallInteger('age');
+            $table->string('gender', 20);
             $table->smallInteger('weight');
             $table->smallInteger('height');
-            $table->smallInteger('target_weight');
-            $table->smallInteger('target_month');
+            $table->string('activity', 20);
+            $table->string('goal', 20);
+            $table->smallInteger('bmr');
             $table->smallInteger('calories_needed');
-            $table->smallInteger('calories_reduced');
-            $table->smallInteger('bmi_score');
-            $table->string('bmi_status', 20);
+            // $table->smallInteger('bmi_score');
+            // $table->string('bmi_status', 20);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
 

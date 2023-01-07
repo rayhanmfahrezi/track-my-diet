@@ -47,6 +47,11 @@ class FoodController extends Controller
     {
         Food::where('id', $id)->update(['saved' => false]);
         return redirect("/dashboard/food/$id");
+    }
 
+    public function saved()
+    {
+        $foods = Food::where('saved', true)->get();
+        return view("saved", ["foods" => $foods]);
     }
 }
