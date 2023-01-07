@@ -2,7 +2,7 @@ import './bootstrap';
 // import Datepicker from 'flowbite-datepicker/Datepicker';
 import 'tw-elements';
 import Alpine from 'alpinejs';
-require('flowbite-datepicker');
+// require('flowbite-datepicker');
 
 const datepickerEl = document.getElementById('datepickerId');
 new Datepicker(datepickerEl, {
