@@ -3,6 +3,8 @@
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\AdminAuthController;
+use App\Http\Controllers\TodayFoodController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,6 +59,26 @@ Route::get('/dashboard/search', [FoodController::class, 'search']);
 Route::get('/foods_admin/create', [FoodController::class, 'create']);
 
 Route::get('/makanan', [FoodController::class, 'all']);
+Route::get('/like/{id}', [FoodController::class, 'like']);
+Route::get('/save/{id}', [FoodController::class, 'save']);
+Route::get('/unsave/{id}', [FoodController::class, 'unsave']);
+
+Route::get('/user-diet', [UserDietController::class, 'all']);
+
+// Route::get('/today-foods', function () {
+//     return view('today_foods');
+// })->name('today_foods');
+
+Route::get('/today-foods', [TodayFoodController::class, 'date'])->name('today_foods');
+Route::get('/today-foods/add', function () {
+    return view('today_food_form');
+});
+Route::post('/today-foods/add-food', [TodayFoodController::class, 'add']);
+Route::get('/today-foods/delete/{id}', [TodayFoodController::class, 'delete']);
+
+Route::get('/today-foods/edit/{id}', [TodayFoodController::class, 'viewEdit']);
+Route::post('/today-foods/update', [TodayFoodController::class, 'update']);
+
 
 
 

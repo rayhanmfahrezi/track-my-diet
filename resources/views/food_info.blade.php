@@ -8,8 +8,11 @@
     <div class="py-8">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="py-5 px-6  text-gray-900 dark:text-gray-100">
+                {{-- <a class="mb-5 inline-block" href="{{ url()->previous() }}">
+                    << Back</a> --}}
+
                 <div class="flex items-start md:space-x-10 flex-col md:flex-row">
-                    <img class="object-cover mb-5 rounded-lg h-96 md:w-4/6"
+                    <img class="object-cover mb-5 rounded-lg h-96 w-full md:w-4/6"
                         src="/images/{{ $food['category'] }}/{{ $food['name'] }}.jpg" alt="{{ $food['name'] }} Image">
                     <div class="md:w-2/6">
                         <h1 class="text-3xl font-bold mb-5">{{ $food['name'] }}</h1>
@@ -27,8 +30,16 @@
                                 {{ $food['protein'] }}</div>
                         </div>
                         <div class="grid grid-cols-2 gap-2 mt-10">
-                            <button class="px-3 py-1 rounded-sm text-center bg-pink-800 bg-opacity-70">Like</button>
-                            <button class="px-3 py-1 rounded-sm text-center bg-gray-600 bg-opacity-70">Save</button>
+                            <a href="/like/{{ $food['id'] }}"
+                                class="px-3 py-1 hover:cursor-pointer rounded-sm text-center bg-pink-500 dark:bg-pink-800 bg-opacity-70">{{ $food['like_count'] }}
+                                Like</a>
+                            @if ($food['saved'])
+                                <a href="/unsave/{{ $food['id'] }}"
+                                    class="px-3 py-1 rounded-sm text-center bg-gray-400 dark:bg-gray-600 bg-opacity-70">Saved</a>
+                            @else
+                                <a href="/save/{{ $food['id'] }}"
+                                    class="px-3 py-1 rounded-sm text-center bg-gray-400 dark:bg-blue-600 bg-opacity-70">Save</a>
+                            @endif
 
                         </div>
                     </div>
