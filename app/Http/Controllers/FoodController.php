@@ -27,4 +27,15 @@ class FoodController extends Controller
 
         return view('search', ['foods' => $foods, 'name' => $name]);
     }
+
+    public function index()
+    {
+        $foods = Food::all();
+        return view('foods_admin', compact('foods'));
+    }
+
+    public function create()
+    {
+        return view('new_food');
+    }
 }
