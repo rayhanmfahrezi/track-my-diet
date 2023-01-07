@@ -47,5 +47,6 @@ class FoodController extends Controller
     {
         Food::where('id', $id)->update(['saved' => false]);
         return redirect("/dashboard/food/$id");
+
     }
 }
