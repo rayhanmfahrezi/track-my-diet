@@ -13,15 +13,17 @@ class FoodController extends Controller
 {
     public function all()
     {
-
         if (UserDiet::where("user_id", Auth::id())->exists()) {
-            $foods = Food::all();
             $calories_needed = UserDiet::where("user_id", Auth::id())->get("calories_needed");
             $today_foods = TodayFood::where("user_id", Auth::id())->where("date", date('Y-m-d'))->get();
+            // $foods = Food::all();
             $total_calory = 0;
             foreach ($today_foods as $food) {
                 $total_calory += $food["calory"];
             }
+            $remaining = $calories_needed[0]['calories_needed'] - $total_calory;
+            $foods = Food::where("calories", "<", $remaining)->get();
+
             // dump($calories);
             return view('dashboard', ["foods" => $foods, "calories_needed" => $calories_needed, "total" => $total_calory]);
         } else {

@@ -39,18 +39,14 @@ class UserDietsController extends Controller
         } elseif ($request->activity == "intense") {
             $calory = $bmr * 1.55;
         }
-
         if ($request->goal == "loss") {
             $calory -= 500;
         } elseif ($request->goal == "gain") {
             $calory += 500;
         }
-
         $user_diet->calories_needed = $calory;
-
         $user_diet->user_id = Auth::id();
         $user_diet->save();
-
         return redirect(route('dashboard'));
     }
 
@@ -93,18 +89,14 @@ class UserDietsController extends Controller
         } elseif ($request->activity == "intense") {
             $calory = $bmr * 1.55;
         }
-
         if ($request->goal == "loss") {
             $calory -= 500;
         } elseif ($request->goal == "gain") {
             $calory += 500;
         }
-
         $user_diet->calories_needed = $calory;
-
         $user_diet->user_id = Auth::id();
         $user_diet->save();
-
         return redirect('/show-user-diets');
     }
 }
