@@ -25,15 +25,28 @@ class UserDietsController extends Controller
 
         $bmr = 0;
         if ($request->gender == "man") {
-            $bmr = 88362 + (13397 * $request->weight) + (4799 * $request->height) - (5677 * $request->age);
+            $bmr = 88.362 + (13.397 * $request->weight) + (4.799 * $request->height) - (5.677 * $request->age);
         } elseif ($request->gender == "woman") {
-            $bmr = 447593 + (9247 * $request->weight) + (4330 * $request->height) - (5677 * $request->age);
+            $bmr = 447.593 + (9.247 * $request->weight) + (3.098 * $request->height) - (4.330 * $request->age);
         }
         $user_diet->bmr = $bmr;
 
         $calory = 0;
+        if ($request->activity == "sedentary") {
+            $calory = $bmr * 1.2;
+        } elseif ($request->activity == "normal") {
+            $calory = $bmr * 1.375;
+        } elseif ($request->activity == "intense") {
+            $calory = $bmr * 1.55;
+        }
 
+        if ($request->goal == "loss") {
+            $calory -= 500;
+        } elseif ($request->goal == "gain") {
+            $calory += 500;
+        }
 
+        $user_diet->calories_needed = $calory;
 
         $user_diet->user_id = Auth::id();
         $user_diet->save();

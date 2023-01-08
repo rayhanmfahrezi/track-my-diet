@@ -21,23 +21,14 @@
                 Overview
             </div>
             <div class=" grid grid-cols-1 md:grid-cols-3 gap-3 px-5 md:px-0">
-                <div class=" bg-orange-600 overflow-hidden shadow-sm rounded-lg">
-                    <div class="p-6 text-gray-900 dark:text-gray-100">
-                        <h1 class="text-xl font-bold mb-3">
-                            Remaining
-                        </h1>
-                        <h1 class="text-3xl font-bold">
-                            800
-                        </h1>
-                    </div>
-                </div>
+
                 <div class=" bg-green-600 overflow-hidden shadow-sm rounded-lg">
                     <div class="p-6 text-gray-900 dark:text-gray-100">
                         <h1 class="text-xl font-bold mb-3">
                             Goals
                         </h1>
                         <h1 class="text-3xl font-bold">
-                            2000
+                            {{ $calories_needed[0]['calories_needed'] }}
                         </h1>
                     </div>
                 </div>
@@ -47,7 +38,17 @@
                             Calories
                         </h1>
                         <h1 class="text-3xl font-bold">
-                            1200
+                            {{ $total }}
+                        </h1>
+                    </div>
+                </div>
+                <div class=" bg-orange-600 overflow-hidden shadow-sm rounded-lg">
+                    <div class="p-6 text-gray-900 dark:text-gray-100">
+                        <h1 class="text-xl font-bold mb-3">
+                            Remaining
+                        </h1>
+                        <h1 class="text-3xl font-bold">
+                            {{ $calories_needed[0]['calories_needed'] - $total }}
                         </h1>
                     </div>
                 </div>

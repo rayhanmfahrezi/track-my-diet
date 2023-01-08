@@ -38,9 +38,13 @@ Route::get('/', function () {
 //     });
 // });
 
-Route::get('/admin-dashboard', function () {
+Route::get('/admin-dashboard/food', function () {
     return view('admin.auth.welcome_admin');
-});
+})->name('food');
+
+Route::get('/admin-dashboard/user', function () {
+    return view('admin.auth.welcome_admin');
+})->name('user');
 
 Route::get('/dashboard', [FoodController::class, 'all'])->middleware(['auth', 'verified'])->name('dashboard');
 

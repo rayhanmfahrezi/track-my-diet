@@ -3,14 +3,30 @@
 namespace App\Http\Controllers;
 
 use App\Models\Food;
+use App\Models\TodayFood;
+use App\Models\User;
+use App\Models\UserDiet;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FoodController extends Controller
 {
     public function all()
     {
-        $foods = Food::all();
-        return view('dashboard', ["foods" => $foods]);
+
+        if (UserDiet::where("user_id", Auth::id())->exists()) {
+            $foods = Food::all();
+            $calories_needed = UserDiet::where("user_id", Auth::id())->get("calories_needed");
+            $today_foods = TodayFood::where("user_id", Auth::id())->where("date", date('Y-m-d'))->get();
+            $total_calory = 0;
+            foreach ($today_foods as $food) {
+                $total_calory += $food["calory"];
+            }
+            // dump($calories);
+            return view('dashboard', ["foods" => $foods, "calories_needed" => $calories_needed, "total" => $total_calory]);
+        } else {
+            return redirect(route("user_diets"));
+        }
     }
 
     public function single($id)
@@ -53,5 +69,10 @@ class FoodController extends Controller
     {
         $foods = Food::where('saved', true)->get();
         return view("saved", ["foods" => $foods]);
+    }
+
+    public function searchTodayFood($name)
+    {
+        # code...
     }
 }
