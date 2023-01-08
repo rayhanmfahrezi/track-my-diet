@@ -5,8 +5,12 @@
         </h2>
     </x-slot>
 
-    <div class="container">
-        Welcome, Admin
+    <div class="py-8">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="py-5 px-6 text-2xl font-medium text-gray-900 dark:text-gray-100">
+                Welcome, Admin
+            </div>
+        </div>
     </div>
 
 </x-app-layout>

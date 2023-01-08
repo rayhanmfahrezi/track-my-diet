@@ -38,9 +38,7 @@ Route::get('/', function () {
 //     });
 // });
 
-Route::get('/admin-dashboard/food', function () {
-    return view('admin.auth.welcome_admin');
-})->name('food');
+Route::get('/admin-dashboard/food', [FoodController::class, 'all'])->name('food');
 
 Route::get('/admin-dashboard/user', function () {
     return view('admin.auth.welcome_admin');
@@ -69,7 +67,10 @@ Route::get('/save/{id}', [FoodController::class, 'save']);
 Route::get('/unsave/{id}', [FoodController::class, 'unsave']);
 
 Route::get('/user-diets', [UserDietsController::class, 'showForm'])->name("user_diets");
+Route::get('/show-user-diets', [UserDietsController::class, 'show'])->name("show_user_diets");
 Route::post('/user-diets/save', [UserDietsController::class, 'save']);
+Route::get('/user-diets/edit', [UserDietsController::class, 'viewEdit']);
+Route::post('/user-diets/update', [UserDietsController::class, 'update']);
 
 // Route::get('/today-foods', function () {
 //     return view('today_foods');
