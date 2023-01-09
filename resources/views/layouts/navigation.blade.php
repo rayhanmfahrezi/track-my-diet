@@ -5,10 +5,17 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a class="text-xl font-extrabold text-gray-800 dark:text-gray-200" href="{{ route('dashboard') }}">
-                        TrackMyDiet
-                        {{-- <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" /> --}}
-                    </a>
+                    @if (Illuminate\Support\Facades\Auth::user()->is_admin == true)
+                        <a class="text-xl font-extrabold text-gray-800 dark:text-gray-200" href="#">
+                            TrackMyDiet
+                            {{-- <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" /> --}}
+                        </a>
+                    @else
+                        <a class="text-xl font-extrabold text-gray-800 dark:text-gray-200" href="{{ route('dashboard') }}">
+                            TrackMyDiet
+                            {{-- <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" /> --}}
+                        </a>
+                    @endif
                 </div>
 
                 <!-- Navigation Links -->
@@ -17,9 +24,9 @@
                         <x-nav-link :href="route('food')" :active="request()->routeIs('food')">
                             {{ __('Food') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('user')" :active="request()->routeIs('user')">
+                        <!-- <x-nav-link :href="route('user')" :active="request()->routeIs('user')">
                             {{ __('User') }}
-                        </x-nav-link>
+                        </x-nav-link> -->
                     @else
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                             {{ __('Home') }}

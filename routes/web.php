@@ -3,6 +3,7 @@
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\AdminAuthController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TodayFoodController;
 use App\Http\Controllers\UserDietsController;
 use Illuminate\Support\Facades\Route;
@@ -38,13 +39,23 @@ Route::get('/', function () {
 //     });
 // });
 
-Route::get('/admin-dashboard/food', function () {
-    return view('admin.auth.welcome_admin');
-})->name('food');
+Route::get('/admin-dashboard/food', [AdminController::class, 'foodAdmin'])->name('food');
 
 Route::get('/admin-dashboard/user', function () {
     return view('admin.auth.welcome_admin');
 })->name('user');
+
+Route::get('/admin-dashboard/food/create', function() {
+    return view('admin.create_foodAdmin');
+});
+
+Route::post('/admin-dashboard/food/create/submit', [AdminController::class, 'createFood_admin']);
+
+Route::get('/admin-dashboard/food/delete/{id}', [AdminController::class, 'delete']);
+
+Route::get('/admin-dashboard/food/edit/{id}', [AdminController::class, 'viewEdit']);
+
+Route::post('/admin-dashboard/food/edit/update', [AdminController::class, 'update']);
 
 Route::get('/dashboard', [FoodController::class, 'all'])->middleware(['auth', 'verified'])->name('dashboard');
 
