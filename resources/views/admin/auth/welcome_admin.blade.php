@@ -5,6 +5,7 @@
         </h2>
     </x-slot>
 
+
     <style>
         .table {
             display: flex;
@@ -78,5 +79,6 @@
             </div> 
         </div>      
     </div>    
+
 
 </x-app-layout>

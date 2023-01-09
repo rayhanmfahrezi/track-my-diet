@@ -37,7 +37,7 @@
                         <x-nav-link :href="route('today_foods')" :active="request()->routeIs('today_foods')">
                             {{ __('Today Foods') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('user_diets')" :active="request()->routeIs('user_diets')">
+                        <x-nav-link :href="route('show_user_diets')" :active="request()->routeIs('show_user_diets')">
                             {{ __('User Diets') }}
                         </x-nav-link>
                     @endif
