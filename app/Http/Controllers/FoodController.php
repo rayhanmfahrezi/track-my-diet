@@ -77,4 +77,5 @@ class FoodController extends Controller
     {
         # code...
     }
+
 }

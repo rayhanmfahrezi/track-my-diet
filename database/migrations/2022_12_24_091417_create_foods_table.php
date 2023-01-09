@@ -21,9 +21,9 @@ return new class extends Migration
             $table->longText('ingredient');
             $table->longText('instruction');
             $table->smallInteger('calories');
-            $table->float('carbs', 4, 2);
-            $table->float('fat', 4, 2);
-            $table->float('protein', 4, 2);
+            $table->float('carbs', 6, 2);
+            $table->float('fat', 6, 2);
+            $table->float('protein', 6, 2);
             $table->string('serving_size', 20);
 
             $table->boolean('like');
