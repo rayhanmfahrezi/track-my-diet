@@ -10,4 +10,9 @@ class UserDiet extends Model
     use HasFactory;
 
     protected $table = "user_diets";
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

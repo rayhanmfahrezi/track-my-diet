@@ -47,4 +47,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\TodayFood');
     }
+
+    public function userDiets()
+    {
+        return $this->hasOne(UserDiet::class);
+    }
 }

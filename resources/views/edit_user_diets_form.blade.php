@@ -79,7 +79,7 @@
                     </div>
                     <div>
                         <label for="goal" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Diet
-                            Goal</label>
+                            Goal </label>
                         <div class="flex items-center mb-4">
                             <input checked id="goal-1" type="radio" value="loss" name="goal"
                                 {{ $user_diet['goal'] == 'loss' ? 'selected' : '' }}

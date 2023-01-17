@@ -13,8 +13,8 @@
                     <div>
                         <label for="date"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Date</label>
-                        <input class="dark:bg-gray-600 dark:text-slate-100" type="date" id="datepicker" name="date"
-                            value="{{ isset($date) ? $date : '' }}">
+                        <input required class="dark:bg-gray-600 dark:text-slate-100" type="date" id="datepicker"
+                            name="date" value="{{ isset($date) ? $date : '' }}">
                     </div>
                     <div>
                         <label for="name"

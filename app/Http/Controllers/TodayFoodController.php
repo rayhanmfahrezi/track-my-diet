@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Food;
 use App\Models\TodayFood;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Spatie\LaravelIgnition\Recorders\DumpRecorder\Dump;
@@ -35,12 +36,17 @@ class TodayFoodController extends Controller
     {
 
         if ($request->calory == null) {
-            $food = Food::where("name", $request->name)->first();
-            $error_message = "";
-            if ($food == null) {
-                $error_message = "Sorry, Food is not in database. You must fill calory by yourself";
+            try {
+                $food_array = Food::where("name", $request->name)->first();
+                $food = collect($food_array);
+                if ($food->isEmpty()) {
+                    throw new Exception("Sorry, Food is not in database. You must fill calory by yourself");
+                } else {
+                    return view('today_food_form', ["today_food" => $food, "date" => $request->date, "error" => ""]);
+                }
+            } catch (Exception $e) {
+                return view('today_food_form', ["date" => $request->date, "error" => $e->getMessage()]);
             }
-            return view('today_food_form', ["today_food" => $food, "date" => $request->date, "error" => $error_message]);
         } else {
             $today_food = new TodayFood();
             $today_food->date = $request->date;

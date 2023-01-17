@@ -50,7 +50,6 @@ class FoodController extends Controller
     {
         $food = Food::select('like', 'like_count')->where('id', $id)->first();
         Food::where('id', $id)->update(['like_count' => $food['like_count'] + 1]);
-        // dump($food);
 
         return redirect("/dashboard/food/$id");
     }
@@ -73,9 +72,8 @@ class FoodController extends Controller
         return view("saved", ["foods" => $foods]);
     }
 
-    public function searchTodayFood($name)
-    {
-        # code...
-    }
-
+    // public function searchTodayFood($name)
+    // {
+    //     # code...
+    // }
 }
